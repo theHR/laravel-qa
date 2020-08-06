@@ -10997,8 +10997,8 @@ form.form-delete {
   color: #adb5bd;
 }
 
-.vote-controls a.favourite.favourited,
-.vote-controls a.favourite.favourited:hover {
+.vote-controls a.favourite.favorited,
+.vote-controls a.favourite.favorited:hover {
   color: #ffed4a;
 }
 
