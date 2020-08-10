@@ -9,6 +9,6 @@ $factory->define(Answer::class, function (Faker $faker) {
     return [
         'body'	=>	$faker->paragraphs(rand(3, 7), true),
         'user_id'	=>	App\User::pluck('id')->random(),
-        'vote_counts'	=>	rand(0, 5),
+        // 'vote_counts'	=>	rand(0, 5),
     ];
 });

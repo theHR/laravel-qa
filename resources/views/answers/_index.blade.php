@@ -10,13 +10,25 @@
                 @foreach($answers as $answer)
                     <div class="media">
                         <div class="d-flex flex-column vote-controls">
-                            <a title="This question is useful" class="vote-up">
+                            <a title="This answer is useful" 
+                                class="vote-up {{ auth()->guest() ? 'off' : '' }}"
+                                onclick="event.preventDefault(); document.getElementById('up-vote-answer-{{ $answer->id }}').submit();">
                                 <i class="fas fa-caret-up fa-3x"></i>
                             </a>
-                            <span class="votes-count">123</span>
-                            <a title="This question is not useful" class="vote-down off">
+                            <form action="/answers/{{ $answer->id }}/vote" id="up-vote-answer-{{ $answer->id }}" method="POST" style="display: none;">
+                                @csrf
+                                <input type="hidden" value="1" name="vote">
+                            </form>
+                            <span class="votes-count">{{ $answer->vote_counts }}</span>
+                            <a title="This answer is not useful" 
+                                class="vote-down {{ auth()->guest() ? 'off' : '' }}"
+                                onclick="event.preventDefault(); document.getElementById('down-vote-answer-{{ $answer->id }}').submit();">
                                 <i class="fas fa-caret-down fa-3x"></i>
                             </a>
+                            <form action="/answers/{{ $answer->id }}/vote" id="down-vote-answer-{{ $answer->id }}" method="POST" style="display: none;">
+                                @csrf
+                                <input type="hidden" value="-1" name="vote">
+                            </form>
                             @can('accept',$answer)
                             <a title="Mark this answer as best answer" href="#" 
                                 class="{{ $answer->status }} mt-2"
