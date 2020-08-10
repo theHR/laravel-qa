@@ -13,7 +13,8 @@ class DatabaseSeeder extends Seeder
     {
         $this->call([
             'UsersQiestionsAnswersSeeder',
-            'FavoritesTableSeeder'
+            'FavoritesTableSeeder',
+            'VotablesTableSeeder'
         ]);
     }
 }
