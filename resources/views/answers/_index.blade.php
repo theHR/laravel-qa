@@ -19,7 +19,7 @@
                                 @csrf
                                 <input type="hidden" value="1" name="vote">
                             </form>
-                            <span class="votes-count">{{ $answer->vote_counts }}</span>
+                            <span class="votes-count">{{ $answer->votes_count }}</span>
                             <a title="This answer is not useful" 
                                 class="vote-down {{ auth()->guest() ? 'off' : '' }}"
                                 onclick="event.preventDefault(); document.getElementById('down-vote-answer-{{ $answer->id }}').submit();">
