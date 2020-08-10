@@ -2,8 +2,6 @@
 namespace App;
 
 trait VotableTrait{
-
-	use VotableTrait;
 	
 	public function votes()
     {
