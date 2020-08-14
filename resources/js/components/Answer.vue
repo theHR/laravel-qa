@@ -38,10 +38,10 @@
 				.then(res => {
 					this.editing = false;
 					this.bodyHtml = res.data.body_html;
-					alert(res.data.message);
+					this.$toast.success(res.data.message, "Success", { timeout: 3000 });
 				})
 				.catch(err => {
-					alert(err.response.data.message);
+					this.$toast.error(res.data.message, "Error", { timeout: 3000 });
 				});
 			},
 			destroy (){
@@ -49,7 +49,7 @@
 					axios.delete(this.endpoint)
 						.then(res => {
 							$(this.$el).fadeOut(500, () => {
-								alert(res.data.message);
+								this.$toast.success(res.data.message, "Success", { timeout: 3000 });
 							});
 						});
 				}
