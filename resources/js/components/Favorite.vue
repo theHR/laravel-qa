@@ -27,9 +27,6 @@
 			},
 			endpoint() {
 				return `/questions/${this.id}/favorites`;
-			},
-			signedIn() {
-				return Auth.signedIn;
 			}
 		},
 
